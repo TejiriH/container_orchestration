@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-clusterip-service  # Name of the service
+spec:
+  type: ClusterIP  # Service type: ClusterIP for internal access only
+  selector:
+    app: my-nginx  # Matches the label on your Deployment pods
+  ports:
+    - protocol: TCP
+      port: 80        # Port exposed by the service within the cluster
+      targetPort: 80  # Port the Nginx container listens on in the pod
